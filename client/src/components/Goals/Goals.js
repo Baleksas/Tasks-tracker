@@ -2,10 +2,8 @@ import { motion } from "framer-motion";
 import React, { useState, useEffect, useCallback } from "react";
 import { pageTransition } from "../../Styles/Transitions";
 import { container, item } from "../../Styles/Transitions";
-import { Link, Switch } from "react-router-dom";
 import AddIcon from "@material-ui/icons/Add";
 import { v4 as uuidv4 } from "uuid";
-import { useSelector, useDispatch } from "react-redux";
 import Goal from "./Goal";
 import {
   Button,
@@ -15,10 +13,7 @@ import {
   InputLabel,
   TextField,
 } from "@material-ui/core";
-import { createGoal } from "../../actions/goals";
 const Goals = ({ didGoal }) => {
-  const dispatch = useDispatch();
-  const goals_redux = useSelector((state) => state.goals);
   const [goals, setGoals] = useState([]);
   const [term, setTerm] = useState("day");
   const [text, setText] = useState("");
@@ -30,22 +25,34 @@ const Goals = ({ didGoal }) => {
   useEffect(() => {
     setGoalData({ ...goalData, time: term });
   }, [term]);
-  //depending on term, goals will be filtered and shown in the list
+
   const handleSubmit = (e) => {
     e.preventDefault();
-    dispatch(createGoal(goalData));
-    // const newGoal = {
-    //   text: { text }.text,
-    //   time: { term }.term,
-    //   id: uuidv4(),
-    // };
-
-    // setGoals([...goals, newGoal]);
-    // setText("");
+    const newGoal = {
+      text: { text }.text,
+      time: { term }.term,
+      priority: 3,
+      id: uuidv4(),
+    };
+    setGoals([...goals, newGoal]);
+    setText("");
   };
-  // const deleteGoal = (id) => {
-  //   setGoals(goals.filter((goal) => goal.id !== id));
-  // };
+  const priorityUp = (id) => {
+    setGoals(
+      goals.map((goal) =>
+        goal.id === id
+          ? {
+              ...goal,
+              priority: goal.priority - 1,
+            }
+          : goal
+      )
+    );
+  };
+
+  const deleteGoal = (id) => {
+    setGoals(goals.filter((goal) => goal.id !== id));
+  };
   return (
     <motion.div
       exit="out"
@@ -99,15 +106,20 @@ const Goals = ({ didGoal }) => {
           </div>
 
           <div className="goals-items">
-            {goals_redux
+            {goals
               .filter((goal) => goal.time == term)
               .map((goal) => (
-                <Goal didGoal={didGoal} goal={goal} key={goal._id} />
+                <Goal
+                  didGoal={didGoal}
+                  deleteGoal={deleteGoal}
+                  priorityUp={priorityUp}
+                  goal={goal}
+                  key={goal.id}
+                />
               ))}
           </div>
           <form noValidate className="add-goal-form" onSubmit={handleSubmit}>
-            {/* React textfield */}
-            {/* <TextField
+            <TextField
               name="goal"
               variant="filled"
               label="Goal"
@@ -119,18 +131,8 @@ const Goals = ({ didGoal }) => {
                 },
                 [text]
               )}
-            /> */}
-            {/* Redux textfield */}
-            <TextField
-              name="text"
-              variant="filled"
-              label="Goal"
-              fullWidth
-              value={goalData.text}
-              onChange={(e) =>
-                setGoalData({ ...goalData, text: e.target.value })
-              }
             />
+
             <Button
               className="add-goal-button"
               variant="outlined"

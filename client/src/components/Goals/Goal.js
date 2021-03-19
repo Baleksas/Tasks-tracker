@@ -1,21 +1,13 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import DeleteOutlineIcon from "@material-ui/icons/DeleteOutline";
 import CheckCircleOutlineIcon from "@material-ui/icons/CheckCircleOutline";
 import moment from "moment";
-import { useDispatch } from "react-redux";
-import { deleteGoal } from "../../actions/goals";
-const Goal = ({ goal, didGoal }) => {
-  const dispatch = useDispatch();
-  const priorityUp = () => {
-    setPriority(priority - 1);
-    if (priority === 1) {
-      setPriority(3);
-    }
-  };
-
-  const [priority, setPriority] = useState(3);
+const Goal = ({ goal, didGoal, deleteGoal, priorityUp }) => {
   return (
-    <li onDoubleClick={priorityUp} className={`goal-item p${priority}`}>
+    <li
+      onDoubleClick={(e) => priorityUp(goal.id)}
+      className={`goal-item p${goal.priority}`}
+    >
       <div className="goal-item-text">
         <div>{goal.text}</div>
         <span className="timeAgo">{moment(goal.createdAt).fromNow()}</span>
@@ -26,7 +18,7 @@ const Goal = ({ goal, didGoal }) => {
         onClick={() => didGoal(goal)}
       />
       <DeleteOutlineIcon
-        onClick={() => dispatch(deleteGoal(goal._id))}
+        onClick={() => deleteGoal(goal.id)}
         className="deleteIcon"
       />
     </li>
