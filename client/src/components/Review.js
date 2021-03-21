@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import { pageTransition } from "../Styles/Transitions";
 import { AnimatePresence, motion } from "framer-motion";
 import Goal from "./Goals/Goal";
@@ -12,7 +12,7 @@ const Review = ({ doneGoals }) => {
       className="container"
     >
       {doneGoals.map((goal) => (
-        <Goal text={goal.text} />
+        <h1>Item</h1>
       ))}
     </motion.div>
   );

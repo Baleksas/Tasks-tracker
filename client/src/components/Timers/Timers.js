@@ -1,6 +1,6 @@
-import React from "react";
+import React, { useContext } from "react";
 import { AnimatePresence, motion } from "framer-motion";
-import { pageTransition } from "../Styles/Transitions";
+import { pageTransition } from "../../Styles/Transitions";
 const Timers = () => {
   return (
     <motion.div
@@ -9,9 +9,7 @@ const Timers = () => {
       initial="initial"
       variants={pageTransition}
       className="container"
-    >
-      Timers
-    </motion.div>
+    ></motion.div>
   );
 };
 

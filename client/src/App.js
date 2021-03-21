@@ -6,9 +6,9 @@ import {
   Switch,
   useLocation,
 } from "react-router-dom";
-import React, { useState } from "react";
+import React, { useState, useContext, createContext, useEffect } from "react";
 import Nav from "./components/Nav";
-import Timers from "./components/Timers";
+import Timers from "./components/Timers/Timers";
 import Review from "./components/Review";
 import Goals from "./components/Goals/Goals";
 import About from "./components/About";
@@ -17,11 +17,12 @@ import { AnimatePresence, motion } from "framer-motion";
 const App = () => {
   const location = useLocation();
   const [doneGoals, setDoneGoals] = useState([]);
-
   const didGoal = (goal) => {
     setDoneGoals([...doneGoals, goal]);
   };
-
+  useEffect(() => {
+    console.log(doneGoals);
+  }, [doneGoals]);
   return (
     <>
       <div id="backgroundLayer"></div>
