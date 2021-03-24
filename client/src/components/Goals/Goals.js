@@ -13,8 +13,7 @@ import {
   InputLabel,
   TextField,
 } from "@material-ui/core";
-const Goals = ({ didGoal }) => {
-  const [goals, setGoals] = useState([]);
+const Goals = ({ didGoal, goals, setGoals, deleteGoal }) => {
   const [term, setTerm] = useState("day");
   const [text, setText] = useState("");
   const [goalData, setGoalData] = useState({
@@ -50,9 +49,6 @@ const Goals = ({ didGoal }) => {
     );
   };
 
-  const deleteGoal = (id) => {
-    setGoals(goals.filter((goal) => goal.id !== id));
-  };
   return (
     <motion.div
       exit="out"

@@ -1,7 +1,8 @@
 import React, { useContext } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { pageTransition } from "../../Styles/Transitions";
-const Timers = () => {
+import Timer from "./Timer";
+const Timers = ({ countRef, goals }) => {
   return (
     <motion.div
       exit="out"
@@ -9,7 +10,12 @@ const Timers = () => {
       initial="initial"
       variants={pageTransition}
       className="container"
-    ></motion.div>
+    >
+      {/* Goals are filtered with term=day only */}
+      {goals.map((goal) => (
+        <Timer countRef={countRef} key={goal.id} goal={goal} />
+      ))}
+    </motion.div>
   );
 };
 

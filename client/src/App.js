@@ -6,7 +6,13 @@ import {
   Switch,
   useLocation,
 } from "react-router-dom";
-import React, { useState, useContext, createContext, useEffect } from "react";
+import React, {
+  useState,
+  useContext,
+  useRef,
+  createContext,
+  useEffect,
+} from "react";
 import Nav from "./components/Nav";
 import Timers from "./components/Timers/Timers";
 import Review from "./components/Review";
@@ -17,12 +23,16 @@ import { AnimatePresence, motion } from "framer-motion";
 const App = () => {
   const location = useLocation();
   const [doneGoals, setDoneGoals] = useState([]);
+  const [goals, setGoals] = useState([]);
+  const countRef = useRef(null);
   const didGoal = (goal) => {
-    setDoneGoals([...doneGoals, goal]);
+    const newDoneGoal = { ...goal, doneIn: 5 };
+    setDoneGoals([...doneGoals, newDoneGoal]);
   };
-  useEffect(() => {
-    console.log(doneGoals);
-  }, [doneGoals]);
+
+  const deleteGoal = (id) => {
+    setGoals(goals.filter((goal) => goal.id !== id));
+  };
   return (
     <>
       <div id="backgroundLayer"></div>
@@ -30,9 +40,19 @@ const App = () => {
       <Nav />
       <AnimatePresence exitBeforeEnter>
         <Switch exitBeforeEnter location={location} key={location.pathname}>
-          <Route exact path="/" component={Timers}></Route>
+          <Route exact path="/">
+            <Timers
+              countRef={countRef}
+              goals={goals.filter((goal) => goal.time == "day")}
+            />
+          </Route>
           <Route path="/goals">
-            <Goals didGoal={didGoal} />
+            <Goals
+              goals={goals}
+              deleteGoal={deleteGoal}
+              setGoals={setGoals}
+              didGoal={didGoal}
+            />
           </Route>
           <Route path="/about" component={About}></Route>
           <Route path="/review">

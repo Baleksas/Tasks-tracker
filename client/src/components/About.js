@@ -53,7 +53,7 @@ const About = () => {
                   Visit
                 </a>
               </motion.div>
-              <motion.div
+              {/* <motion.div
                 className="project"
                 drag
                 dragConstraints={constraintsRef}
@@ -62,7 +62,7 @@ const About = () => {
                 <a target="_blank" href="https://todoandtimer.netlify.app">
                   Visit
                 </a>
-              </motion.div>
+              </motion.div> */}
             </motion.div>
           </div>
           <motion.div variants={item} className="grid-itm name">

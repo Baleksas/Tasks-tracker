@@ -15,7 +15,10 @@ const Goal = ({ goal, didGoal, deleteGoal, priorityUp }) => {
 
       <CheckCircleOutlineIcon
         className="doneIcon"
-        onClick={() => didGoal(goal)}
+        onClick={() => {
+          didGoal(goal);
+          deleteGoal(goal.id);
+        }}
       />
       <DeleteOutlineIcon
         onClick={() => deleteGoal(goal.id)}
