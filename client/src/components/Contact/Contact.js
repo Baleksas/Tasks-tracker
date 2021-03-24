@@ -15,7 +15,11 @@ const Contact = () => {
       className="container"
     >
       <div className="contact-container">
-        <form autoComplete="off" className={`${classes.root} ${classes.form}`}>
+        <form
+          netlify
+          autoComplete="off"
+          className={`${classes.root} ${classes.form}`}
+        >
           <TextField name="email" variant="outlined" label="Email" fullWidth />
           <TextField name="title" variant="outlined" label="Title" fullWidth />
           <TextField
