@@ -13,12 +13,12 @@ import {
   InputLabel,
   TextField,
 } from "@material-ui/core";
-const Goals = ({ didGoal, goals, setGoals, deleteGoal }) => {
+const Goals = ({ countRef, didGoal, goals, setGoals, deleteGoal }) => {
   const [term, setTerm] = useState("day");
   const [text, setText] = useState("");
   const [goalData, setGoalData] = useState({
     text: "",
-    priority: 3,
+    priority: true,
     time: "day",
   });
   useEffect(() => {
@@ -30,7 +30,7 @@ const Goals = ({ didGoal, goals, setGoals, deleteGoal }) => {
     const newGoal = {
       text: { text }.text,
       time: { term }.term,
-      priority: 3,
+      priority: false,
       id: uuidv4(),
     };
     setGoals([...goals, newGoal]);
@@ -42,7 +42,7 @@ const Goals = ({ didGoal, goals, setGoals, deleteGoal }) => {
         goal.id === id
           ? {
               ...goal,
-              priority: goal.priority - 1,
+              priority: !goal.priority,
             }
           : goal
       )
@@ -106,6 +106,7 @@ const Goals = ({ didGoal, goals, setGoals, deleteGoal }) => {
               .filter((goal) => goal.time == term)
               .map((goal) => (
                 <Goal
+                  countRef={countRef}
                   didGoal={didGoal}
                   deleteGoal={deleteGoal}
                   priorityUp={priorityUp}

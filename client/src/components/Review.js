@@ -60,19 +60,28 @@ const Review = ({ doneGoals }) => {
               </motion.li>
             </ul>
           </div>
-          <table className="review-items">
-            <tr>
-              <th>Goal</th>
-              <th>Paused times</th>
-              <th>Achieved in</th>
-            </tr>
+          {doneGoals.length > 0 ? (
+            <table className="review-items">
+              <tr>
+                <th>Goal</th>
+                <th>Paused times</th>
+                <th>Achieved in</th>
+              </tr>
 
-            {doneGoals
-              .filter((goal) => goal.time == term)
-              .map((goal) => (
-                <ReviewGoal goal={goal} key={goal.id} />
-              ))}
-          </table>
+              {doneGoals
+                .filter((goal) => goal.time == term)
+                .map((goal) => (
+                  <ReviewGoal goal={goal} key={goal.id} />
+                ))}
+            </table>
+          ) : (
+            <div className="no__goals">
+              This is a review page. You can see your results and reflect on
+              them!
+              <br />
+              Now go and make some goals!
+            </div>
+          )}
         </motion.div>
       </motion.div>
     </motion.div>

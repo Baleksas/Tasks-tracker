@@ -16,6 +16,7 @@ const Contact = () => {
     >
       <div className="contact-container">
         <form
+          method="POST"
           netlify
           autoComplete="off"
           className={`${classes.root} ${classes.form}`}

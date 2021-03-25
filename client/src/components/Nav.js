@@ -54,15 +54,6 @@ const Nav = () => {
           <li>
             <Link
               onClick={openNav}
-              className={`${useLocation().pathname == "/" ? "focus" : ""}`}
-              to="/"
-            >
-              Timers
-            </Link>
-          </li>
-          <li>
-            <Link
-              onClick={openNav}
               className={`${
                 useLocation().pathname == "/review" ? "focus" : ""
               }`}

@@ -14,7 +14,6 @@ import React, {
   useEffect,
 } from "react";
 import Nav from "./components/Nav";
-import Timers from "./components/Timers/Timers";
 import Review from "./components/Review";
 import Goals from "./components/Goals/Goals";
 import About from "./components/About";
@@ -40,21 +39,18 @@ const App = () => {
       <Nav />
       <AnimatePresence exitBeforeEnter>
         <Switch exitBeforeEnter location={location} key={location.pathname}>
-          <Route exact path="/">
-            <Timers
-              countRef={countRef}
-              goals={goals.filter((goal) => goal.time == "day")}
-            />
-          </Route>
+          <Route path="/about" component={About}></Route>
+          <Route exact path="/" component={About}></Route>
           <Route path="/goals">
             <Goals
+              countRef={countRef}
               goals={goals}
               deleteGoal={deleteGoal}
               setGoals={setGoals}
               didGoal={didGoal}
             />
           </Route>
-          <Route path="/about" component={About}></Route>
+
           <Route path="/review">
             <Review doneGoals={doneGoals} />
           </Route>
