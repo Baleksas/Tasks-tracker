@@ -3,12 +3,19 @@ import DeleteOutlineIcon from "@material-ui/icons/DeleteOutline";
 import CheckCircleOutlineIcon from "@material-ui/icons/CheckCircleOutline";
 import moment from "moment";
 import Timer from "../Timers/Timer";
-const Goal = ({ countRef, goal, didGoal, deleteGoal, priorityUp }) => {
+const Goal = ({
+  mainTime,
+  setMainTime,
+  countRef,
+  goal,
+  didGoal,
+  deleteGoal,
+  priorityUp,
+}) => {
   const [doneTime, setDoneTime] = useState(0);
   const [pausedTimes, setPausedTimes] = useState(0);
-
   return (
-    <>
+    <div className="goalAndTimer">
       <li
         onDoubleClick={(e) => priorityUp(goal.id)}
         className={`goal-item ${goal.priority ? "importantGoal" : ""}`}
@@ -31,13 +38,15 @@ const Goal = ({ countRef, goal, didGoal, deleteGoal, priorityUp }) => {
         />
       </li>
       <Timer
+        mainTime={mainTime}
+        setMainTime={setMainTime}
         pausedTimes={pausedTimes}
         setPausedTimes={setPausedTimes}
         setDoneTime={setDoneTime}
         countRef={countRef}
         goal={goal}
       />
-    </>
+    </div>
   );
 };
 

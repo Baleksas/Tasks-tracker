@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 
 const Timer = ({
+  mainTime,
+  setMainTime,
   pausedTimes,
   setPausedTimes,
   countRef,
@@ -17,6 +19,7 @@ const Timer = ({
   const handleStart = () => {
     setStatus("active");
     countRef.current = setInterval(() => {
+      setMainTime((mainTime) => mainTime + 1);
       setTimer((timer) => timer + 1);
     }, 1000);
   };
@@ -28,9 +31,11 @@ const Timer = ({
 
   return (
     <div className="timer">
-      <h3>{goal.text}</h3>
       <div className="stopwatch-card">
-        <p>{timer}</p> {/* here we will show timer */}
+        <p>{parseInt(timer / 3600)}</p>
+        <p>{parseInt((timer % 3600) / 60)}</p>
+        <p>{parseInt((timer % 3600) % 60)}</p>
+
         <div className="buttons">
           {status == "active" || status == "paused" ? (
             <button onClick={status == "active" ? handlePause : handleStart}>

@@ -13,7 +13,9 @@ import {
   InputLabel,
   TextField,
 } from "@material-ui/core";
+import MainTimer from "../Timers/MainTimer";
 const Goals = ({ countRef, didGoal, goals, setGoals, deleteGoal }) => {
+  const [mainTime, setMainTime] = useState(0);
   const [term, setTerm] = useState("day");
   const [text, setText] = useState("");
   const [goalData, setGoalData] = useState({
@@ -106,6 +108,8 @@ const Goals = ({ countRef, didGoal, goals, setGoals, deleteGoal }) => {
               .filter((goal) => goal.time == term)
               .map((goal) => (
                 <Goal
+                  mainTime={mainTime}
+                  setMainTime={setMainTime}
                   countRef={countRef}
                   didGoal={didGoal}
                   deleteGoal={deleteGoal}
@@ -140,6 +144,7 @@ const Goals = ({ countRef, didGoal, goals, setGoals, deleteGoal }) => {
               <AddIcon />
             </Button>
           </form>
+          <MainTimer mainTime={mainTime} />
         </motion.div>
       </motion.div>
     </motion.div>
