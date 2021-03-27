@@ -116,7 +116,7 @@ nav::after {
 }
 
 .focus {
-  transform: scale(1.1);
+  /* transform: scale(1.1); */
   opacity: 1;
 }
 /* ------------------------------ */
@@ -145,6 +145,7 @@ nav::after {
   margin: auto;
 }
 .contact-container {
+  position: relative;
   align-self: center;
   margin: auto;
   width: 50%;
@@ -159,18 +160,63 @@ nav::after {
     )
     1 / 1px;
 }
-
+.contact-type {
+  position: absolute;
+  font-size: 24px;
+}
+.contact-type a {
+  color: white;
+}
+.contact-type a:hover {
+  color: rgba(255, 255, 255, 0.3);
+}
+.linked-in {
+  top: -50px;
+  left: 50px;
+}
+.instagram {
+  top: -50px;
+  right: 50px;
+}
 .timers-container {
   align-self: center;
   margin: auto;
 }
+.stopwatch-card {
+  display: flex;
+  flex: 1;
+  justify-content: space-around;
+}
+.buttons button {
+  outline: none;
+  border: none;
+  background: transparent;
+  background-color: rgb(130, 207, 238);
+  transition: all 200ms ease;
+  padding: 0 2px;
+}
+.buttons button:hover {
+  background-color: white;
+}
 .timer {
-  height: 50px;
+  box-sizing: border-box;
+  width: 80%;
+  padding: 0 10px;
+  background-color: rgba(0, 0, 0, 0.1);
+  border: 1px solid white;
+  border-top: none;
+  margin: auto;
+  align-items: center;
+  height: 40px;
   display: flex;
   justify-content: space-around;
 }
 .main_clock {
-  background-color: rgba(0, 0, 0, 0.8);
+  background-color: rgba(0, 0, 0, 0.5);
+  border-left: 1px solid white;
+  border-top: 1px solid white;
+  border-bottom: 1px solid white;
+
   width: 120px;
   height: 50%;
   border-top-left-radius: 50px;
@@ -191,7 +237,7 @@ nav::after {
   align-items: center;
   justify-content: center;
   border-radius: 50%;
-  background-color: white;
+  background-color: rgb(255, 255, 255);
 }
 .main_time_box span {
   color: black;
@@ -203,6 +249,17 @@ nav::after {
   position: relative;
   align-self: center;
   margin: auto;
+}
+/* INTRO */
+.intro-container {
+  background-color: rgba(0, 0, 0, 0.5);
+  text-align: center;
+  border-radius: 50px;
+  display: flex;
+  justify-content: center;
+}
+.intro-container div {
+  transform: translateY(-50%);
 }
 /* GRID & ABOUT */
 .about-container {
@@ -388,6 +445,7 @@ li {
   list-style: none;
 }
 /* GOALS */
+.intro-container,
 .goals-container,
 .review-container {
   width: 80%;
@@ -432,6 +490,7 @@ li {
 
 .add-goal-form {
   display: flex;
+  min-width: 200px;
   width: 20%;
   height: max-content;
   margin: auto;
@@ -464,12 +523,12 @@ li {
   width: 80%;
   flex: 2;
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: repeat(auto-fit, minmax(100px, 300px));
+  grid-template-rows: repeat(10, 1fr);
   justify-items: stretch;
   margin: auto;
   margin-bottom: 25px;
   margin-top: 25px;
-  grid-template-rows: repeat(10, 1fr);
   gap: 10px;
 }
 .review-items {
@@ -514,7 +573,6 @@ td {
 }
 .importantGoal {
   background-color: #a32338;
-  transform: scale(1.05);
 }
 /* SCROLL BAR */
 /* width */
@@ -626,6 +684,10 @@ td {
 @media only screen and (max-width: 1200px) {
   .menu-icon:hover span:first-of-type {
     width: 26px;
+  }
+  .contact-type {
+    font-size: 16px;
+    top: -30px;
   }
   .menu-icon:hover span:last-of-type {
     width: 12px;

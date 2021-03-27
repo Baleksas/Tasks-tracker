@@ -27,6 +27,8 @@ const Goals = ({ countRef, didGoal, goals, setGoals, deleteGoal }) => {
     setGoalData({ ...goalData, time: term });
   }, [term]);
 
+  const pauseOthers = (id) => {};
+
   const handleSubmit = (e) => {
     e.preventDefault();
     const newGoal = {

@@ -35,16 +35,15 @@ const Timer = ({
         <p>{parseInt(timer / 3600)}</p>
         <p>{parseInt((timer % 3600) / 60)}</p>
         <p>{parseInt((timer % 3600) % 60)}</p>
-
-        <div className="buttons">
-          {status == "active" || status == "paused" ? (
-            <button onClick={status == "active" ? handlePause : handleStart}>
-              {status == "active" ? "Pause" : "Resume"}
-            </button>
-          ) : (
-            <button onClick={handleStart}>Start</button>
-          )}
-        </div>
+      </div>
+      <div className="buttons">
+        {status == "active" || status == "paused" ? (
+          <button onClick={status == "active" ? handlePause : handleStart}>
+            {status == "active" ? "Pause" : "Resume"}
+          </button>
+        ) : (
+          <button onClick={handleStart}>Start</button>
+        )}
       </div>
     </div>
   );

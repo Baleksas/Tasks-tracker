@@ -19,6 +19,7 @@ import Goals from "./components/Goals/Goals";
 import About from "./components/About";
 import Contact from "./components/Contact/Contact";
 import { AnimatePresence, motion } from "framer-motion";
+import Instructions from "./components/Instructions";
 const App = () => {
   const location = useLocation();
   const [doneGoals, setDoneGoals] = useState([]);
@@ -39,8 +40,9 @@ const App = () => {
       <Nav />
       <AnimatePresence exitBeforeEnter>
         <Switch exitBeforeEnter location={location} key={location.pathname}>
+          <Route exact path="/" component={Instructions}></Route>
+
           <Route path="/about" component={About}></Route>
-          <Route exact path="/" component={About}></Route>
           <Route path="/goals">
             <Goals
               countRef={countRef}

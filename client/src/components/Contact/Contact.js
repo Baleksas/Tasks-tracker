@@ -15,6 +15,14 @@ const Contact = () => {
       className="container"
     >
       <div className="contact-container">
+        <div className="linked-in contact-type">
+          <a href="https://www.linkedin.com/in/aleksas-bagdonas-2bb8a71b2/">
+            LinkedIn
+          </a>
+        </div>
+        <div className="instagram contact-type">
+          <a href="https://www.instagram.com/alexas.ba/">Instagram</a>
+        </div>
         <form
           method="POST"
           netlify

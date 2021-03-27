@@ -12,6 +12,7 @@ const Goal = ({
   deleteGoal,
   priorityUp,
 }) => {
+  console.log(goal);
   const [doneTime, setDoneTime] = useState(0);
   const [pausedTimes, setPausedTimes] = useState(0);
   return (
