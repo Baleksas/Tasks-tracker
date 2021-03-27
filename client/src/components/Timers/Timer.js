@@ -1,9 +1,19 @@
 import React, { useEffect, useState } from "react";
 
-const Timer = ({ countRef, goal }) => {
+const Timer = ({
+  pausedTimes,
+  setPausedTimes,
+  countRef,
+  goal,
+  setDoneTime,
+}) => {
   const [timer, setTimer] = useState(0);
   const [status, setStatus] = useState("");
-
+  useEffect(() => {
+    return () => {
+      setDoneTime(timer);
+    };
+  }, [timer]);
   const handleStart = () => {
     setStatus("active");
     countRef.current = setInterval(() => {
@@ -12,6 +22,7 @@ const Timer = ({ countRef, goal }) => {
   };
   const handlePause = () => {
     setStatus("paused");
+    setPausedTimes(pausedTimes + 1);
     clearInterval(countRef.current);
   };
 

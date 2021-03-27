@@ -4,6 +4,9 @@ import CheckCircleOutlineIcon from "@material-ui/icons/CheckCircleOutline";
 import moment from "moment";
 import Timer from "../Timers/Timer";
 const Goal = ({ countRef, goal, didGoal, deleteGoal, priorityUp }) => {
+  const [doneTime, setDoneTime] = useState(0);
+  const [pausedTimes, setPausedTimes] = useState(0);
+
   return (
     <>
       <li
@@ -18,7 +21,7 @@ const Goal = ({ countRef, goal, didGoal, deleteGoal, priorityUp }) => {
         <CheckCircleOutlineIcon
           className="doneIcon"
           onClick={() => {
-            didGoal(goal);
+            didGoal(goal, doneTime + 1, pausedTimes);
             deleteGoal(goal.id);
           }}
         />
@@ -27,7 +30,13 @@ const Goal = ({ countRef, goal, didGoal, deleteGoal, priorityUp }) => {
           className="deleteIcon"
         />
       </li>
-      <Timer countRef={countRef} goal={goal} />
+      <Timer
+        pausedTimes={pausedTimes}
+        setPausedTimes={setPausedTimes}
+        setDoneTime={setDoneTime}
+        countRef={countRef}
+        goal={goal}
+      />
     </>
   );
 };

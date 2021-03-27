@@ -24,8 +24,8 @@ const App = () => {
   const [doneGoals, setDoneGoals] = useState([]);
   const [goals, setGoals] = useState([]);
   const countRef = useRef(null);
-  const didGoal = (goal) => {
-    const newDoneGoal = { ...goal, doneIn: 5 };
+  const didGoal = (goal, doneTime, pausedTimes) => {
+    const newDoneGoal = { ...goal, doneIn: doneTime, pausedTimes: pausedTimes };
     setDoneGoals([...doneGoals, newDoneGoal]);
   };
 
