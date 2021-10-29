@@ -19,7 +19,7 @@ const Review = ({ doneGoals }) => {
     >
       <motion.div className="goals-container">
         <motion.div
-          className="goals-box"
+          className={`goals-box ${term}`}
           variants={container}
           initial="hidden"
           animate="visible"
@@ -60,26 +60,29 @@ const Review = ({ doneGoals }) => {
               </motion.li>
             </ul>
           </div>
-          {doneGoals.length > 0 ? (
-            <table className="review-items">
-              <tr>
-                <th>Goal</th>
-                <th>Paused times</th>
-                <th>Achieved in</th>
-              </tr>
+          {doneGoals.filter((goal) => goal.time == term).length > 0 ? (
+            <div className="review-items-container">
+              <table className="review-items">
+                <tr>
+                  <th>Goal</th>
+                  <th>Paused times</th>
+                  <th>Achieved in</th>
+                </tr>
 
-              {doneGoals
-                .filter((goal) => goal.time == term)
-                .map((goal) => (
-                  <ReviewGoal goal={goal} key={goal.id} />
-                ))}
-            </table>
+                {doneGoals
+                  .filter((goal) => goal.time == term)
+                  .map((goal) => (
+                    <ReviewGoal goal={goal} key={goal.id} />
+                  ))}
+              </table>
+            </div>
           ) : (
             <div className="no__goals">
-              This is a review page. You can see your results and reflect on
-              them!
+              This is a review page.
               <br />
-              Now go and make some goals!
+              You can see your results and reflect on them. To do that, you have
+              to achieve goals.
+              <br />
             </div>
           )}
         </motion.div>

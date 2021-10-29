@@ -70,7 +70,9 @@ nav {
   z-index: 1000;
   transition: all 200ms ease-in-out;
 }
-
+.pointer {
+  cursor: pointer;
+}
 nav a {
   color: white;
   opacity: 0.5;
@@ -511,11 +513,13 @@ li {
 .no__goals {
   margin: auto;
   width: max-content;
+  max-width: 100%;
   flex: 2;
   text-align: center;
   margin-top: 50px;
 }
 .goalAndTimer {
+  align-self: center;
 }
 .goals-items {
   overflow-y: auto;
@@ -532,16 +536,21 @@ li {
   gap: 10px;
 }
 .review-items {
-  flex: 2;
   width: 80%;
   margin: auto;
   margin-top: 25px;
   flex-direction: column;
 }
+.review-items-container {
+  flex: 1;
+}
 td {
   border: 1px solid rgba(255, 255, 255, 0.288);
+  padding: 10px;
 }
-
+th {
+  border: 2px solid rgba(255, 255, 255, 0.8);
+}
 .goal-item {
   background-color: rgb(58, 107, 58);
   transition: all 150ms ease-in-out;
@@ -573,6 +582,16 @@ td {
 }
 .importantGoal {
   background-color: #a32338;
+}
+/* Dynamic time wallpaper */
+.day {
+  background-color: rgba(0, 0, 0, 0.5);
+}
+.week {
+  background-color: rgba(0, 0, 0, 0.7);
+}
+.month {
+  background-color: rgba(0, 0, 0, 0.9);
 }
 /* SCROLL BAR */
 /* width */
@@ -764,5 +783,10 @@ td {
     --change: -16px;
     --change2: 15px;
     --changefont: 18px;
+  }
+}
+@media only screen and (max-width: 768px) {
+  .goals-items {
+    grid-template-columns: repeat(auto-fit, minmax(100px, 95%));
   }
 }

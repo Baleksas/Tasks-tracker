@@ -13,8 +13,12 @@ const Instructions = () => {
       className="container"
     >
       <motion.div className="intro-container">
-        <div>Here will be presented Instructions for the application.</div>
-        <div>To be continued...</div>
+        <div>
+          <span>This is a prototype of productivity application.</span>
+        </div>
+        <div>
+          <ul></ul>
+        </div>
       </motion.div>
     </motion.div>
   );

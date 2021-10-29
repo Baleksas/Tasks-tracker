@@ -16,16 +16,21 @@ const Contact = () => {
     >
       <div className="contact-container">
         <div className="linked-in contact-type">
-          <a href="https://www.linkedin.com/in/aleksas-bagdonas-2bb8a71b2/">
+          <a
+            target="_blank"
+            href="https://www.linkedin.com/in/aleksas-bagdonas-2bb8a71b2/"
+          >
             LinkedIn
           </a>
         </div>
         <div className="instagram contact-type">
-          <a href="https://www.instagram.com/alexas.ba/">Instagram</a>
+          <a target="_blank" href="https://www.instagram.com/alexas.ba/">
+            Instagram
+          </a>
         </div>
         <form
           method="POST"
-          netlify
+          data-netlify="true"
           autoComplete="off"
           className={`${classes.root} ${classes.form}`}
         >

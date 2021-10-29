@@ -3,7 +3,9 @@ import { pageTransition } from "../Styles/Transitions";
 import { AnimatePresence, motion } from "framer-motion";
 import { useRef } from "react";
 import sodyboms from "../images/Sodyboms.png";
+import gamespot from "../images/gamespot.png";
 import Adex from "../images/Adex.png";
+import adex2 from "../images/adex2.png";
 import TaskTimer from "../images/TaskAndTimer.png";
 import { item, container } from "../Styles/Transitions";
 
@@ -45,11 +47,28 @@ const About = () => {
                 drag
                 dragConstraints={constraintsRef}
               >
+                <img src={gamespot} alt="Gamespot" />
+                <a target="_blank" href="https://game-spot.netlify.app/">
+                  Visit
+                </a>
+              </motion.div>
+              <motion.div
+                className="project"
+                drag
+                dragConstraints={constraintsRef}
+              >
+                <img src={adex2} alt="Adex2" />
+                <a target="_blank" href="https://adexportfolio.netlify.app/">
+                  Visit
+                </a>
+              </motion.div>
+              <motion.div
+                className="project"
+                drag
+                dragConstraints={constraintsRef}
+              >
                 <img src={Adex} alt="Landpage" />
-                <a
-                  target="_blank"
-                  href="https://mrforif.github.io/AdexDevelopments/"
-                >
+                <a target="_blank" href="https://alexbportfolio.netlify.app/">
                   Visit
                 </a>
               </motion.div>
@@ -95,7 +114,7 @@ const About = () => {
             <ul>
               <li>Psychological movies & books</li>
               <li>Extreme sports</li>
-              <li>Cryptocurrency</li>
+              <li>Technologies</li>
               <li>Stand-Up Comedy</li>
             </ul>
           </motion.div>

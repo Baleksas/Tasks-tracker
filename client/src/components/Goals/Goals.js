@@ -13,7 +13,6 @@ import {
   InputLabel,
   TextField,
 } from "@material-ui/core";
-import MainTimer from "../Timers/MainTimer";
 const Goals = ({ countRef, didGoal, goals, setGoals, deleteGoal }) => {
   const [mainTime, setMainTime] = useState(0);
   const [term, setTerm] = useState("day");
@@ -63,7 +62,7 @@ const Goals = ({ countRef, didGoal, goals, setGoals, deleteGoal }) => {
     >
       <motion.div className="goals-container">
         <motion.div
-          className="goals-box"
+          className={`goals-box ${term}`}
           variants={container}
           initial="hidden"
           animate="visible"
@@ -146,7 +145,6 @@ const Goals = ({ countRef, didGoal, goals, setGoals, deleteGoal }) => {
               <AddIcon />
             </Button>
           </form>
-          <MainTimer mainTime={mainTime} />
         </motion.div>
       </motion.div>
     </motion.div>

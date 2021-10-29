@@ -38,11 +38,16 @@ const Timer = ({
       </div>
       <div className="buttons">
         {status == "active" || status == "paused" ? (
-          <button onClick={status == "active" ? handlePause : handleStart}>
+          <button
+            className="pointer"
+            onClick={status == "active" ? handlePause : handleStart}
+          >
             {status == "active" ? "Pause" : "Resume"}
           </button>
         ) : (
-          <button onClick={handleStart}>Start</button>
+          <button className="pointer" onClick={handleStart}>
+            Start
+          </button>
         )}
       </div>
     </div>
