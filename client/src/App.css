@@ -258,17 +258,55 @@ nav::after {
   text-align: center;
   border-radius: 50px;
   display: flex;
+  height: 30%;
   justify-content: center;
 }
-.intro-container div {
-  transform: translateY(-50%);
+
+.intro-info {
+  flex: 3;
+  margin-top: 8vh;
+  align-self: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.intro-instructions {
+  flex: 5;
+  width: max-content;
+  width: 100%;
+  margin-top: 30px;
+}
+.intro-instructions a {
+  color: #a32338;
+}
+
+.intro-logo {
+  flex: 1;
+  margin-top: 30px;
+  max-height: 10vh;
+  align-items: center;
+  position: relative;
+}
+.intro-logo img {
+  align-self: center;
+  height: 100%;
+}
+.intro-instructions li::after {
+  content: " >";
+}
+.intro-instructions li::before {
+  content: "< ";
+}
+.intro-instructions ul li {
+  width: max-content;
+  max-width: 95%;
+  margin: auto;
 }
 /* GRID & ABOUT */
 .about-container {
   align-self: center;
   margin: auto;
   width: 60%;
-
   height: 100%;
 }
 .projects {
@@ -788,5 +826,11 @@ th {
 @media only screen and (max-width: 768px) {
   .goals-items {
     grid-template-columns: repeat(auto-fit, minmax(100px, 95%));
+  }
+  .intro-container {
+    font-size: 13px;
+  }
+  .intro-container {
+    width: 99%;
   }
 }
