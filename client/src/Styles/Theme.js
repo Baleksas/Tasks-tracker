@@ -33,10 +33,13 @@ export const theme = createMuiTheme({
     },
     MuiButton: {
       root: {
-        minWidth: "40px",
-        borderRadius: "0px",
+        fontSize: "15px",
+        minWidth: "15px",
+        borderRadius: "7px",
+        padding: "0px",
       },
     },
+
     MuiSvgIcon: {
       root: {
         fontSize: "28px",

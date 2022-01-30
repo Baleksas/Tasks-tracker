@@ -3,6 +3,7 @@ import { container, item } from "../Styles/Transitions";
 import { AnimatePresence, motion } from "framer-motion";
 import { pageTransition } from "../Styles/Transitions";
 import Logo from "../../src/images/Logo.svg";
+import { Link } from "react-router-dom";
 const Instructions = () => {
   return (
     <motion.div
@@ -37,8 +38,14 @@ const Instructions = () => {
             <li>You can navigate through it by pressing relevant button</li>
             <li>
               After completing the goal, it will appear in{" "}
-              <a href="/review">Review</a> section with relevant information
-              about the goal
+              <Link
+                // onClick={openNav}
+                // className={`${useLocation().pathname == "/" ? "focus" : ""}`}
+                to="/review"
+              >
+                Review{" "}
+              </Link>
+              section with relevant information about the goal
             </li>
           </ul>
         </div>

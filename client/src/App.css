@@ -153,7 +153,8 @@ nav::after {
   width: 50%;
   border: 1px solid;
   padding: 20px;
-  padding-bottom: 0;
+  display: flex;
+  justify-content: space-around;
   background-color: rgba(0, 0, 0, 0.3);
   border-image: linear-gradient(
       rgba(255, 255, 255, 0),
@@ -163,7 +164,6 @@ nav::after {
     1 / 1px;
 }
 .contact-type {
-  position: absolute;
   font-size: 24px;
 }
 .contact-type a {
@@ -191,14 +191,15 @@ nav::after {
 }
 .buttons button {
   outline: none;
-  border: none;
+  border: 0.5px solid white;
+  border-radius: 5px;
   background: transparent;
-  background-color: rgb(130, 207, 238);
+  color: white;
   transition: all 200ms ease;
   padding: 0 2px;
 }
 .buttons button:hover {
-  background-color: white;
+  background-color: grey;
 }
 .timer {
   box-sizing: border-box;
@@ -212,6 +213,7 @@ nav::after {
   height: 40px;
   display: flex;
   justify-content: space-around;
+  border-radius: 0 0 15px 15px;
 }
 .main_clock {
   background-color: rgba(0, 0, 0, 0.5);
@@ -397,6 +399,7 @@ nav::after {
 }
 .grid {
   height: 100%;
+  max-width: 100%;
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 3fr 0.7fr 0.7fr 2fr;
@@ -514,6 +517,7 @@ li {
 .goals-top ul {
   display: flex;
   font-size: 40px;
+  max-width: 100%;
   justify-content: space-around;
   padding-bottom: 10px;
 }
@@ -525,6 +529,7 @@ li {
   display: flex;
   height: 100%;
   flex-direction: column;
+  transition: all 300ms ease-in;
   user-select: none;
 }
 
@@ -623,13 +628,13 @@ th {
 }
 /* Dynamic time wallpaper */
 .day {
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(0, 0, 0, 0.4);
 }
 .week {
-  background-color: rgba(0, 0, 0, 0.7);
+  background-color: rgba(0, 0, 0, 0.6);
 }
 .month {
-  background-color: rgba(0, 0, 0, 0.9);
+  background-color: rgba(0, 0, 0, 0.8);
 }
 /* SCROLL BAR */
 /* width */
@@ -753,6 +758,8 @@ th {
     height: 100px;
     opacity: 1;
   }
+  .intro-container {
+  }
   .skills {
     gap: 10px;
   }
@@ -798,7 +805,7 @@ th {
     );
   }
   #small-nav li {
-    font-size: 30px;
+    font-size: 18px;
   }
 
   body {
@@ -824,8 +831,49 @@ th {
   }
 }
 @media only screen and (max-width: 768px) {
+  * {
+  }
+  .goals-top ul li {
+    width: max-content;
+  }
+  .intro-info {
+    margin-top: 0;
+  }
+  .intro-instructions {
+    margin-top: 15px;
+  }
+  .goal-item {
+    height: max-content;
+  }
+  .grid {
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 50px;
+    height: max-content;
+  }
+  .projects {
+    padding: 5px;
+  }
+  .project a {
+    top: 0px;
+  }
   .goals-items {
     grid-template-columns: repeat(auto-fit, minmax(100px, 95%));
+    font-size: 15px;
+  }
+
+  .goals-top {
+    margin-top: 5px;
+    font-size: 13px !important;
+  }
+  .goals-top ul {
+    height: max-content;
+    padding: 0;
+  }
+  .contact-container {
+    flex-direction: column;
+    align-items: center;
+    padding: 50px 0 50px 0;
   }
   .intro-container {
     font-size: 13px;
@@ -833,4 +881,8 @@ th {
   .intro-container {
     width: 99%;
   }
+}
+
+.MuiButton-outlinedSizeLarge {
+  padding: 0 5px !important;
 }

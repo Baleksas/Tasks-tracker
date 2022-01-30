@@ -37,31 +37,12 @@ const About = () => {
                 drag
                 dragConstraints={constraintsRef}
               >
-                <img src={sodyboms} alt="Landpage" />
-                <a target="_blank" href="http://sodyboms.com/">
-                  Visit
-                </a>
-              </motion.div>
-              <motion.div
-                className="project"
-                drag
-                dragConstraints={constraintsRef}
-              >
                 <img src={gamespot} alt="Gamespot" />
                 <a target="_blank" href="https://game-spot.netlify.app/">
                   Visit
                 </a>
               </motion.div>
-              <motion.div
-                className="project"
-                drag
-                dragConstraints={constraintsRef}
-              >
-                <img src={adex2} alt="Adex2" />
-                <a target="_blank" href="https://adexportfolio.netlify.app/">
-                  Visit
-                </a>
-              </motion.div>
+
               <motion.div
                 className="project"
                 drag
@@ -72,16 +53,6 @@ const About = () => {
                   Visit
                 </a>
               </motion.div>
-              {/* <motion.div
-                className="project"
-                drag
-                dragConstraints={constraintsRef}
-              >
-                <img src={TaskTimer} alt="Todo" />
-                <a target="_blank" href="https://todoandtimer.netlify.app">
-                  Visit
-                </a>
-              </motion.div> */}
             </motion.div>
           </div>
           <motion.div variants={item} className="grid-itm name">
@@ -101,12 +72,15 @@ const About = () => {
               <li>Html</li>
               <li>Css</li>
               <li>Javascript</li>
+              <li>Typescript</li>
+
               <li>Figma</li>
             </ul>
             <ul>
               <li>React</li>
+              <li>Next</li>
               <li>Express</li>
-              <li>MongoDB</li>
+              <li>NoSQL/SQL</li>
               <li>NodeJS</li>
             </ul>
           </motion.div>
