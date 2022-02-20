@@ -5,10 +5,7 @@ A Portfolio project of Aleksas Bagdonas
 [Habex](https://habexapp.netlify.app/)
 
 ### Technologies used
-1. React
-2. Express
-3. MongoDB
-4. Node
+React
 
 ### License
 **Habex** is licenced under [The MIT License](https://opensource.org/licenses/MIT)
