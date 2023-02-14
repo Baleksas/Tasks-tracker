@@ -122,7 +122,7 @@ nav::after {
   opacity: 1;
 }
 /* ------------------------------ */
-.Habit {
+.background {
   font-family: "Poppins", sans-serif;
   position: absolute;
   top: 20%;
@@ -133,7 +133,7 @@ nav::after {
   opacity: 0.1;
   background: -webkit-linear-gradient(
     rgb(0, 0, 0),
-    rgba(255, 255, 255, 0.5),
+    rgba(255, 255, 255, 0.678),
     rgb(0, 0, 0)
   );
   -webkit-background-clip: text;
@@ -249,7 +249,7 @@ nav::after {
   font-family: "Roboto Mono", monospace;
   text-align: center;
 }
-.goals-container {
+.tasks-container {
   position: relative;
   align-self: center;
   margin: auto;
@@ -487,9 +487,9 @@ nav::after {
 li {
   list-style: none;
 }
-/* GOALS */
+/* TaskS */
 .intro-container,
-.goals-container,
+.tasks-container,
 .review-container {
   width: 80%;
   margin: auto;
@@ -498,11 +498,11 @@ li {
   flex-direction: column;
   color: white;
 }
-.goals-top {
+.tasks-top {
   width: 80%;
   margin: auto;
 }
-.goals-top::after {
+.tasks-top::after {
   background: linear-gradient(
     to right,
     rgba(255, 255, 255, 0.1),
@@ -514,7 +514,7 @@ li {
   display: block;
   height: 2px;
 }
-.goals-top ul {
+.tasks-top ul {
   display: flex;
   font-size: 40px;
   max-width: 100%;
@@ -522,7 +522,7 @@ li {
   padding-bottom: 10px;
 }
 
-.goals-box,
+.tasks-box,
 .reviews-box {
   background-color: rgba(0, 0, 0, 0.5);
   border-radius: 50px;
@@ -533,10 +533,11 @@ li {
   user-select: none;
 }
 
-.add-goal-form {
+.add-task-form {
   display: flex;
-  min-width: 200px;
-  width: 20%;
+  flex-direction: column;
+  justify-content: space-around;
+  min-width: 300px;
   height: max-content;
   margin: auto;
   margin-bottom: 50px;
@@ -544,16 +545,16 @@ li {
 
 .timeAgo {
   align-self: flex-end;
-  font-size: 16px;
+  font-size: 12px;
   opacity: 0.6;
 }
-.goal-item-text {
+.task-item-text {
   margin: 0 10px;
 }
 .hidden {
   visibility: hidden;
 }
-.no__goals {
+.no__tasks {
   margin: auto;
   width: max-content;
   max-width: 100%;
@@ -561,10 +562,10 @@ li {
   text-align: center;
   margin-top: 50px;
 }
-.goalAndTimer {
+.taskAndTimer {
   align-self: center;
 }
-.goals-items {
+.tasks-items {
   overflow-y: auto;
   overflow-x: visible;
   width: 80%;
@@ -594,10 +595,11 @@ td {
 th {
   border: 2px solid rgba(255, 255, 255, 0.8);
 }
-.goal-item {
+.task-item {
   background-color: rgb(58, 107, 58);
   transition: all 150ms ease-in-out;
-  height: 50px;
+  height: max-content;
+  max-height: 200px;
   box-sizing: border-box;
   display: flex;
   align-items: center;
@@ -619,11 +621,11 @@ th {
 .deleteIcon:hover {
   color: red;
 }
-.goal-item div {
+.task-item div {
   width: max-content;
   flex: 2;
 }
-.importantGoal {
+.importantTask {
   background-color: #a32338;
 }
 /* Dynamic time wallpaper */
@@ -786,11 +788,11 @@ th {
     display: block;
     z-index: 1000;
   }
-  .Habit {
+  .background {
     font-size: 100px;
     left: 50%;
     top: 30%;
-    opacity: 0.4;
+    opacity: 0.6;
   }
   .about-container {
     width: max-content;
@@ -833,7 +835,7 @@ th {
 @media only screen and (max-width: 768px) {
   * {
   }
-  .goals-top ul li {
+  .tasks-top ul li {
     width: max-content;
   }
   .intro-info {
@@ -842,7 +844,7 @@ th {
   .intro-instructions {
     margin-top: 15px;
   }
-  .goal-item {
+  .task-item {
     height: max-content;
   }
   .grid {
@@ -857,16 +859,16 @@ th {
   .project a {
     top: 0px;
   }
-  .goals-items {
+  .tasks-items {
     grid-template-columns: repeat(auto-fit, minmax(100px, 95%));
     font-size: 15px;
   }
 
-  .goals-top {
+  .tasks-top {
     margin-top: 5px;
     font-size: 13px !important;
   }
-  .goals-top ul {
+  .tasks-top ul {
     height: max-content;
     padding: 0;
   }

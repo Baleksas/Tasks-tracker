@@ -36,19 +36,10 @@ const Nav = () => {
           <li>
             <Link
               onClick={openNav}
-              className={`${useLocation().pathname == "/about" ? "focus" : ""}`}
-              to="/about"
+              className={`${useLocation().pathname == "/tasks" ? "focus" : ""}`}
+              to="/tasks"
             >
-              About
-            </Link>
-          </li>
-          <li>
-            <Link
-              onClick={openNav}
-              className={`${useLocation().pathname == "/goals" ? "focus" : ""}`}
-              to="/goals"
-            >
-              Goals
+              Tasks
             </Link>
           </li>
           <li>
@@ -69,17 +60,6 @@ const Nav = () => {
               to="/review"
             >
               Review
-            </Link>
-          </li>
-          <li>
-            <Link
-              onClick={openNav}
-              className={`${
-                useLocation().pathname == "/contact" ? "focus" : ""
-              }`}
-              to="/contact"
-            >
-              Contact
             </Link>
           </li>
         </ul>

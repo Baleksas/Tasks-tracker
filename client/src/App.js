@@ -1,64 +1,39 @@
+import React, { useRef, useState } from "react";
+import { Route, Switch, useLocation } from "react-router-dom";
 import "./App.css";
-import {
-  BrowserRouter as Router,
-  Link,
-  Route,
-  Switch,
-  useLocation,
-} from "react-router-dom";
-import React, {
-  useState,
-  useContext,
-  useRef,
-  createContext,
-  useEffect,
-} from "react";
+import Tasks from "./components/Tasks/Tasks";
+import Instructions from "./components/Instructions";
 import Nav from "./components/Nav";
 import Review from "./components/Review";
-import Goals from "./components/Goals/Goals";
-import About from "./components/About";
-import Contact from "./components/Contact/Contact";
-import { AnimatePresence, motion } from "framer-motion";
-import Instructions from "./components/Instructions";
 const App = () => {
   const location = useLocation();
-  const [doneGoals, setDoneGoals] = useState([]);
-  const [goals, setGoals] = useState([]);
+  const [doneTasks, setDoneTasks] = useState([]);
+  const [tasks, setTasks] = useState([]);
   const countRef = useRef(null);
-  const didGoal = (goal, doneTime, pausedTimes) => {
-    const newDoneGoal = { ...goal, doneIn: doneTime, pausedTimes: pausedTimes };
-    setDoneGoals([...doneGoals, newDoneGoal]);
+  const didTask = (task, doneTime, pausedTimes) => {
+    const newDoneTask = { ...task, doneIn: doneTime, pausedTimes: pausedTimes };
+    setDoneTasks([...doneTasks, newDoneTask]);
   };
 
-  const deleteGoal = (id) => {
-    setGoals(goals.filter((goal) => goal.id !== id));
-  };
   return (
     <>
-      <div id="backgroundLayer"></div>
-      <h1 className="Habit">Habit</h1>
       <Nav />
-      <AnimatePresence exitBeforeEnter>
-        <Switch exitBeforeEnter location={location} key={location.pathname}>
-          <Route exact path="/" component={Instructions}></Route>
+      <Switch exitBeforeEnter location={location} key={location.pathname}>
+        <Route exact path="/" component={Instructions}></Route>
 
-          <Route path="/about" component={About}></Route>
-          <Route path="/goals">
-            <Goals
-              countRef={countRef}
-              goals={goals}
-              deleteGoal={deleteGoal}
-              setGoals={setGoals}
-              didGoal={didGoal}
-            />
-          </Route>
+        <Route path="/tasks">
+          <Tasks
+            countRef={countRef}
+            tasks={tasks}
+            setTasks={setTasks}
+            didTask={didTask}
+          />
+        </Route>
 
-          <Route path="/review">
-            <Review doneGoals={doneGoals} />
-          </Route>
-          <Route path="/contact" component={Contact}></Route>
-        </Switch>
-      </AnimatePresence>
+        <Route path="/review">
+          <Review doneTasks={doneTasks} />
+        </Route>
+      </Switch>
     </>
   );
 };

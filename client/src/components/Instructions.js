@@ -1,56 +1,17 @@
 import React from "react";
-import { container, item } from "../Styles/Transitions";
-import { AnimatePresence, motion } from "framer-motion";
-import { pageTransition } from "../Styles/Transitions";
-import Logo from "../../src/images/Logo.svg";
-import { Link } from "react-router-dom";
 const Instructions = () => {
   return (
-    <motion.div
-      exit="out"
-      animate="in"
-      initial="initial"
-      variants={pageTransition}
-      className="container"
-    >
-      <motion.div className="intro-container">
-        <div className="intro-logo">
-          <img src={Logo} alt="" />
-        </div>
-        <div className="intro-info">
-          <span>This is a prototype of productivity application.</span>
-          <br />
-          <span>
-            The application is not connected to database, nor it has local
-            memory.
-          </span>
-          <br />
-          <span>
-            This project was done to demonstrate Front-End development skills.
-          </span>
-        </div>
+    <div className="container">
+      <div className="intro-container">
         <div className="intro-instructions">
-          <h2>Goals & Review</h2>
-          <ul>
-            <li>
-              Goals section is dedicated to create goals for day/week/month
-            </li>
-            <li>You can navigate through it by pressing relevant button</li>
-            <li>
-              After completing the goal, it will appear in{" "}
-              <Link
-                // onClick={openNav}
-                // className={`${useLocation().pathname == "/" ? "focus" : ""}`}
-                to="/review"
-              >
-                Review{" "}
-              </Link>
-              section with relevant information about the goal
-            </li>
-          </ul>
+          <h2>Everflow Technical Exercise</h2>
+          <div>
+            {/* INSTRUCTIONS */}
+            <ul></ul>
+          </div>
         </div>
-      </motion.div>
-    </motion.div>
+      </div>
+    </div>
   );
 };
 

@@ -14,7 +14,7 @@ export const theme = createMuiTheme({
     MuiFormControl: {
       root: {
         color: "#ffffff",
-        backgroundColor: "rgba(0,0,0,0.5)",
+        backgroundColor: "rgba(100,100,100,100.5)",
         // border: "1px solid white",
         borderBottomLeftRadius: "5px",
         borderTopLeftRadius: "5px",
