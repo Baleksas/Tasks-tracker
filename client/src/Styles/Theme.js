@@ -2,9 +2,9 @@ import { createMuiTheme } from "@material-ui/core/styles";
 export const theme = createMuiTheme({
   palette: {
     primary: {
-      main: "#ffffff",
-      dark: "#ffffff",
-      contrastText: "#ffffff",
+      main: "#bab8b8",
+      dark: "#000000",
+      contrastText: "#000000",
     },
     secondary: {
       main: "#66bb6a",
@@ -13,16 +13,14 @@ export const theme = createMuiTheme({
   overrides: {
     MuiFormControl: {
       root: {
-        color: "#ffffff",
+        color: "#bab8b8",
         backgroundColor: "rgba(100,100,100,100.5)",
         // border: "1px solid white",
-        borderBottomLeftRadius: "5px",
-        borderTopLeftRadius: "5px",
       },
     },
     MuiFormLabel: {
       root: {
-        color: "#ffffff",
+        color: "#bab8b8",
       },
     },
     MuiInputBase: {

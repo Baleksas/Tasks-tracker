@@ -106,7 +106,7 @@ nav::after {
   flex-direction: column;
   width: max-content;
   margin: auto 0 auto auto;
-  font-size: var(--lg);
+  font-size: 22px;
   text-align: right;
   padding-right: 15px;
 
@@ -562,7 +562,7 @@ li {
   text-align: center;
   margin-top: 50px;
 }
-.taskAndTimer {
+.taskBox {
   align-self: center;
 }
 .tasks-items {
@@ -596,7 +596,7 @@ th {
   border: 2px solid rgba(255, 255, 255, 0.8);
 }
 .task-item {
-  background-color: rgb(58, 107, 58);
+  background-color: rgb(86, 86, 86);
   transition: all 150ms ease-in-out;
   height: max-content;
   max-height: 200px;
@@ -611,12 +611,16 @@ th {
   border-radius: 0;
 } */
 .deleteIcon,
-.doneIcon {
+.doneIcon,
+.editIcon {
   transition: all 200ms ease-in-out;
   cursor: pointer;
 }
 .doneIcon:hover {
   color: rgb(68, 165, 68);
+}
+.editIcon:hover {
+  color: rgb(222, 143, 197);
 }
 .deleteIcon:hover {
   color: red;

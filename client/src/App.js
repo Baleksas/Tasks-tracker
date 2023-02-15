@@ -6,7 +6,6 @@ import Instructions from "./components/Instructions";
 import Nav from "./components/Nav";
 const App = () => {
   const location = useLocation();
-  const [tasks, setTasks] = useState([]);
 
   return (
     <>
@@ -15,10 +14,10 @@ const App = () => {
         <Route exact path="/" component={Instructions}></Route>
 
         <Route path="/tasks">
-          <Tasks tasks={tasks} setTasks={setTasks} />
+          <Tasks />
         </Route>
         <Route path="/completed">
-          <Tasks tasks={tasks} setTasks={setTasks} />
+          <Tasks />
         </Route>
       </Switch>
     </>
