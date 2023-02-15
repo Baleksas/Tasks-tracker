@@ -9,8 +9,8 @@ export const getTasks = async (req, res) => {
   }
 };
 export const createTask = async (req, res) => {
-  const { title, dateToComplete } = req.body;
-  const newTask = new TaskMessage({ title, dateToComplete });
+  const { title, dateToComplete, type } = req.body;
+  const newTask = new TaskMessage({ title, dateToComplete, type });
   try {
     await newTask.save();
     res.status(201).json(newTask);
@@ -20,12 +20,12 @@ export const createTask = async (req, res) => {
 };
 export const updateTask = async (req, res) => {
   const { id } = req.params;
-  const { title, dateToComplete } = req.body;
+  const { title, dateToComplete, type } = req.body;
 
   if (!mongoose.Types.ObjectId.isValid(id))
     return res.status(404).send(`No task with: ${id}`);
 
-  const updatedTask = { title, dateToComplete, _id: id };
+  const updatedTask = { title, dateToComplete, type, _id: id };
   await TaskMessage.findByIdAndUpdate(id, updatedTask, { new: true });
   res.json(updatedTask);
 };

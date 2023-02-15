@@ -616,7 +616,7 @@ th {
   cursor: pointer;
 }
 .doneIcon:hover {
-  color: green;
+  color: rgb(68, 165, 68);
 }
 .deleteIcon:hover {
   color: red;

@@ -2,8 +2,11 @@ import CheckCircleOutlineIcon from "@material-ui/icons/CheckCircleOutline";
 import DeleteOutlineIcon from "@material-ui/icons/DeleteOutline";
 import moment from "moment";
 import React from "react";
-const Task = ({ task, del }) => {
-  console.log(task);
+import { useLocation } from "react-router-dom";
+const Task = ({ task, update, del }) => {
+  let location = useLocation();
+  const tasksType =
+    location.pathname === "/completed" ? "completed" : "default";
   return (
     <div className="taskAndTimer">
       <li className={`task-item`}>
@@ -15,13 +18,18 @@ const Task = ({ task, del }) => {
           </span>
         </div>
 
-        <CheckCircleOutlineIcon
-          className="doneIcon"
-          onClick={() => {
-            //Move to done db
-            del(task.id);
-          }}
-        />
+        {tasksType === "default" && (
+          <CheckCircleOutlineIcon
+            className="doneIcon"
+            onClick={() => {
+              const updatedTask = {
+                ...task,
+              };
+              updatedTask["type"] = "completed";
+              update(task._id, updatedTask);
+            }}
+          />
+        )}
         <DeleteOutlineIcon
           onClick={() => del(task._id)}
           className="deleteIcon"
@@ -32,3 +40,6 @@ const Task = ({ task, del }) => {
 };
 
 export default Task;
+
+// current tasks are reminders
+// tasks should have subtasks and option to be repeated?

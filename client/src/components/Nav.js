@@ -39,7 +39,7 @@ const Nav = () => {
               className={`${useLocation().pathname == "/tasks" ? "focus" : ""}`}
               to="/tasks"
             >
-              Tasks
+              Reminders
             </Link>
           </li>
           <li>
@@ -55,11 +55,11 @@ const Nav = () => {
             <Link
               onClick={openNav}
               className={`${
-                useLocation().pathname == "/review" ? "focus" : ""
+                useLocation().pathname == "/completed" ? "focus" : ""
               }`}
-              to="/review"
+              to="/completed"
             >
-              Review
+              Completed
             </Link>
           </li>
         </ul>
