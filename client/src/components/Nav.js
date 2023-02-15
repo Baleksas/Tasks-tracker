@@ -12,7 +12,7 @@ const Nav = () => {
           <span></span>
         </div>
       </div>
-      <nav id="small-nav">
+      <nav>
         <ul className="nav-ul">
           <li>
             <Link

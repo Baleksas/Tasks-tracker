@@ -34,10 +34,7 @@ const CreateTask = ({ tasks }) => {
   const [message, setMessage] = useState("");
   const [severity, setSeverity] = useState("error");
 
-  const activateSnackbar = () => {
-    setOpenSnackbar(true);
-  };
-  const checkErrors = (taskToCheck, tasks) => {
+  const checkErrors = (taskToCheck) => {
     // No duplicate title
     if (
       tasks.filter(
@@ -47,7 +44,7 @@ const CreateTask = ({ tasks }) => {
     ) {
       setMessage("No duplicate tasks are allowed");
       setSeverity("error");
-      activateSnackbar();
+      setOpenSnackbar(true);
       return false;
     }
 
@@ -55,7 +52,7 @@ const CreateTask = ({ tasks }) => {
     if (taskToCheck.title === "") {
       setMessage("Empty titles are not allowed");
       setSeverity("error");
-      activateSnackbar();
+      setOpenSnackbar(true);
       return false;
     }
     return true;
@@ -67,6 +64,7 @@ const CreateTask = ({ tasks }) => {
     setOpenCreate(false);
     setTitle("");
     setDate(dayjs(undefined));
+    setIncludeDate(true);
   };
   // Create task
   const handleSubmit = (e) => {
@@ -78,13 +76,13 @@ const CreateTask = ({ tasks }) => {
       type: "default",
     };
 
-    if (!checkErrors(newTask, tasks)) return;
+    if (!checkErrors(newTask)) return;
     dispatch(createTask(newTask));
 
     // Alert success
     setMessage("Task created successfully!");
     setSeverity("success");
-    activateSnackbar();
+    setOpenSnackbar(true);
     handleClose();
   };
 

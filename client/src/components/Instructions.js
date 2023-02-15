@@ -7,11 +7,20 @@ const Instructions = () => {
           <h2>Everflow Technical Exercise</h2>
           <div className="intro-content">
             <div>
-              "manage my tasks and activites throughout the working day." -
-              throughout the working day
+              <span>Requirements</span>
+              <div>
+                <li>- Reminders can be added to the application.</li>
+                <li>
+                  - All tasks or an individual task can be viewed or retrieved.
+                </li>
+                <li>- Reminders can be deleted from the application. </li>
+                <li>
+                  - Duplicate reminders should not be able to be added to the
+                  app.
+                </li>
+                <li>- Existing Reminders can be updated in the app.</li>
+              </div>
             </div>
-            Requirements
-            <ul></ul>
           </div>
         </div>
       </div>

@@ -62,14 +62,16 @@ a:hover {
 }
 nav {
   position: static;
-  width: 20vw;
+  width: max-content;
   display: flex;
   align-self: center;
-  min-width: max-content;
+  margin: auto;
+  min-width: 50%;
   height: max-content;
   z-index: 1000;
   transition: all 200ms ease-in-out;
 }
+
 .pointer {
   cursor: pointer;
 }
@@ -92,20 +94,19 @@ nav a {
 
 .nav-ul {
   display: flex;
-  width: 500px;
+  width: auto;
   max-width: 80%;
   font-size: 1.4em;
-  margin: 15px;
+  margin: 15px auto;
   justify-content: space-around;
   text-align: right;
   padding-right: 15px;
-
   justify-content: space-between;
   height: 70%;
 }
 .nav-ul li {
   position: relative;
-  margin: 0 5px;
+  margin: 0 15px;
 }
 
 .focus {
@@ -282,12 +283,7 @@ nav a {
   align-self: center;
   height: 100%;
 }
-.intro-instructions li::after {
-  content: " >";
-}
-.intro-instructions li::before {
-  content: "< ";
-}
+
 .intro-instructions ul li {
   width: max-content;
   max-width: 95%;
@@ -571,8 +567,8 @@ li {
   grid-template-rows: repeat(10, 1fr);
   justify-items: stretch;
   margin: auto;
-  margin-bottom: 25px;
-  margin-top: 25px;
+  margin-bottom: 5px;
+  margin-top: 10px;
   gap: 10px;
 }
 .review-items {
@@ -727,29 +723,20 @@ th {
     height: 100px;
     opacity: 1;
   }
-  .intro-container {
-  }
-  .skills {
-    gap: 10px;
-  }
-  #small-nav {
-    position: absolute;
-    height: 100vh;
-    z-index: 100;
-    width: 40vw;
-    left: -50%;
-  }
+
   .nav-ul {
     text-align: center;
     padding-right: 0px;
     width: 100%;
     height: max-content;
+    min-width: 400px;
     display: flex;
     align-items: center;
     justify-content: space-around;
   }
   .nav-ul li {
-    width: 100%;
+    width: max-content;
+    margin: 0 1em;
   }
   .menu-icon {
     display: block;
