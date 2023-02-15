@@ -2,36 +2,53 @@ import { createMuiTheme } from "@material-ui/core/styles";
 export const theme = createMuiTheme({
   palette: {
     primary: {
-      main: "#bab8b8",
+      main: "#FEFCF3",
       dark: "#000000",
-      contrastText: "white",
+      contrastText: "#000000",
     },
     secondary: {
-      main: "#66bb6a",
+      main: "#ffffff",
     },
   },
   overrides: {
     MuiFormControl: {
       root: {
-        color: "#bab8b8",
-        backgroundColor: "rgba(100,100,100,100.5)",
+        color: "#FEFCF3",
       },
     },
     MuiFormLabel: {
       root: {
-        color: "#bab8b8",
+        color: "#FEFCF3",
       },
     },
     MuiPaper: {
       root: {
-        color: "white",
-        backgroundColor: "rgba(55, 55, 31, 0.9)",
         borderRadius: "5px",
+        backgroundColor: "#808080",
+        color: "#FEFCF3",
+        width: "max-content",
       },
     },
+    MuiButtonBase: {
+      root: {
+        color: "#FEFCF3",
+      },
+    },
+    MuiIconButton: {
+      root: {
+        color: "#FEFCF3",
+        fontFamily: "Poppins",
+      },
+    },
+    MuiInputLabel: {
+      root: {
+        padding: "0 0 0 10px",
+      },
+    },
+
     MuiInputBase: {
       root: {
-        color: "#ffffff",
+        color: "#FEFCF3",
         fontFamily: "Poppins",
       },
     },
@@ -40,7 +57,6 @@ export const theme = createMuiTheme({
         fontSize: "15px",
         minWidth: "15px",
         borderRadius: "7px",
-        color: "white",
       },
     },
 

@@ -1,27 +1,8 @@
 import React, { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 
-const body = document.getElementsByTagName("body")[0];
-const background = document.createElement("div");
-background.setAttribute("id", "backgroundLayer");
-body.appendChild(background);
-const openNav = () => {
-  if (window.innerWidth > 1200) return;
-  const nav = document.getElementById("small-nav");
-  if (nav.style.left == "0px") {
-    nav.style.left = "-50%";
-    background.style.backgroundColor = "rgba(0,0,0,0)";
-    background.style.pointerEvents = "none";
-    document.getElementById("cbox").checked = false;
-  } else if (nav.style.left == "-50%" || nav.style.left == "") {
-    nav.style.left = "0px";
-    background.style.pointerEvents = "all";
-    background.style.backgroundColor = "rgba(0,0,0,0.5)";
-  }
-};
-background.addEventListener("click", openNav);
-
 const Nav = () => {
+  const openNav = () => {};
   return (
     <>
       <div onClick={openNav} className=" menu-icon">
@@ -36,10 +17,12 @@ const Nav = () => {
           <li>
             <Link
               onClick={openNav}
-              className={`${useLocation().pathname == "/tasks" ? "focus" : ""}`}
+              className={`${
+                useLocation().pathname === "/tasks" ? "focus" : ""
+              }`}
               to="/tasks"
             >
-              Reminders
+              Tasks
             </Link>
           </li>
           <li>

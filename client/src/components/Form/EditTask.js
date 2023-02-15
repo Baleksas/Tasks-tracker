@@ -9,22 +9,11 @@ import {
 } from "@material-ui/core";
 import AddIcon from "@material-ui/icons/Add";
 import React, { useState } from "react";
-import Draggable from "react-draggable";
-
+import dayjs from "dayjs";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { DateTimePicker } from "@mui/x-date-pickers/DateTimePicker";
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
-
-const PaperComponent = (props) => {
-  return (
-    <Draggable
-      handle="#draggable-dialog-title"
-      cancel={'[class*="MuiDialogContent-root"]'}
-    >
-      <Paper {...props} />
-    </Draggable>
-  );
-};
+import { PaperComponent } from "../PaperComponent";
 
 const EditTask = ({ task, update, allowEdit, setAllowEdit }) => {
   const [newTitle, setNewTitle] = useState(task.title);
@@ -40,7 +29,6 @@ const EditTask = ({ task, update, allowEdit, setAllowEdit }) => {
     const editedTask = { ...task };
     editedTask["title"] = newTitle;
     editedTask["dateToComplete"] = newDate;
-    console.log(editedTask);
     update(task._id, editedTask);
   };
 
@@ -55,31 +43,45 @@ const EditTask = ({ task, update, allowEdit, setAllowEdit }) => {
         Edit task
       </DialogTitle>
       <DialogContent>
-        <form noValidate className="add-task-form" onSubmit={confirmEdit}>
-          <TextField
-            name="task"
-            variant="filled"
-            label="Task title"
-            fullWidth
-            value={newTitle}
-            onChange={(e) => setNewTitle(e.target.value)}
-          />
-
-          <LocalizationProvider dateAdapter={AdapterDayjs}>
-            <DateTimePicker
-              renderInput={(props) => <TextField {...props} />}
-              label="Date"
-              value={newDate}
-              onChange={(newDate) => setNewDate(newDate)}
+        <form onSubmit={confirmEdit}>
+          <div className="add-task-form">
+            <TextField
+              name="task"
+              variant="filled"
+              label="Task title"
+              fullWidth
+              value={newTitle}
+              onChange={(e) => setNewTitle(e.target.value)}
             />
-          </LocalizationProvider>
+
+            <LocalizationProvider dateAdapter={AdapterDayjs}>
+              <DateTimePicker
+                componentsProps={{
+                  shortcuts: {
+                    items: [
+                      {
+                        label: "Reset",
+                        getValue: () => [null, null],
+                      },
+                    ],
+                  },
+                }}
+                renderInput={(props) => <TextField {...props} />}
+                label="Date"
+                value={newDate}
+                onChange={(newDate) => setNewDate(newDate)}
+              />
+            </LocalizationProvider>
+          </div>
         </form>
       </DialogContent>
       <DialogActions>
-        <Button autoFocus onClick={handleClose}>
+        <Button color="secondary" autoFocus onClick={handleClose}>
           Cancel
         </Button>
-        <Button onClick={confirmEdit}>Confirm</Button>
+        <Button color="secondary" onClick={confirmEdit}>
+          Confirm
+        </Button>
       </DialogActions>
     </Dialog>
   );

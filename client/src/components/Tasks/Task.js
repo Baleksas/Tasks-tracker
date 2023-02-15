@@ -4,17 +4,14 @@ import DeleteOutlineIcon from "@material-ui/icons/DeleteOutline";
 import moment from "moment";
 import React, { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
-import EditTask from "./EditTask";
+import EditTask from "../Form/EditTask";
 import RestoreIcon from "@mui/icons-material/Restore";
 import dayjs from "dayjs";
 
 const Task = ({ task, update, del }) => {
   const [allowEdit, setAllowEdit] = useState(false);
-  console.log(task.dateToComplete);
   let location = useLocation();
-  const tasksType =
-    location.pathname === "/completed" ? "completed" : "default";
-  console.log(task.dateToComplete);
+  const pathType = location.pathname === "/completed" ? "completed" : "default";
   //Date formatting
   let formatedDate = task.dateToComplete
     ? dayjs(task.dateToComplete).format("ddd, MMM DD, hh:mm A")
@@ -32,7 +29,7 @@ const Task = ({ task, update, del }) => {
             </span>
           </div>
 
-          {tasksType === "default" && (
+          {pathType === "default" && (
             <React.Fragment>
               <CheckCircleOutlineIcon
                 className="doneIcon"
@@ -51,7 +48,7 @@ const Task = ({ task, update, del }) => {
             </React.Fragment>
           )}
 
-          {tasksType === "completed" && (
+          {pathType === "completed" && (
             <RestoreIcon
               className="editIcon"
               onClick={() => {
@@ -79,6 +76,3 @@ const Task = ({ task, update, del }) => {
 };
 
 export default Task;
-
-// current tasks are reminders
-// tasks should have subtasks and option to be repeated?
