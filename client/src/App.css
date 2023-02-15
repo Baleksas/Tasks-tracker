@@ -534,11 +534,10 @@ li {
 }
 
 .add-task-form {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
+  display: grid;
+
+  /* justify-content: space-around; */
   min-width: 300px;
-  height: max-content;
   margin: auto;
   margin-bottom: 50px;
 }
@@ -631,16 +630,6 @@ th {
 }
 .importantTask {
   background-color: #a32338;
-}
-/* Dynamic time wallpaper */
-.day {
-  background-color: rgba(0, 0, 0, 0.4);
-}
-.week {
-  background-color: rgba(0, 0, 0, 0.6);
-}
-.month {
-  background-color: rgba(0, 0, 0, 0.8);
 }
 /* SCROLL BAR */
 /* width */

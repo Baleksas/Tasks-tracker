@@ -10,13 +10,15 @@ import dayjs from "dayjs";
 
 const Task = ({ task, update, del }) => {
   const [allowEdit, setAllowEdit] = useState(false);
+  console.log(task.dateToComplete);
   let location = useLocation();
   const tasksType =
     location.pathname === "/completed" ? "completed" : "default";
-
+  console.log(task.dateToComplete);
   //Date formatting
-  let formatedDate = dayjs(task.dateToComplete).toString();
-  formatedDate = moment().format("ddd, MMM DD, hA");
+  let formatedDate = task.dateToComplete
+    ? dayjs(task.dateToComplete).format("ddd, MMM DD, hh:mm A")
+    : null;
 
   return (
     <React.Fragment>

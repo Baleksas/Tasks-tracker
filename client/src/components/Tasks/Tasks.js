@@ -1,30 +1,17 @@
-import {
-  Button,
-  Checkbox,
-  TextField,
-  FormControlLabel,
-} from "@material-ui/core";
-import AddIcon from "@material-ui/icons/Add";
-import React, { useCallback, useEffect, useState } from "react";
-import Task from "./Task";
-import { Link, useLocation } from "react-router-dom";
-import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
-import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
-import { DateTimePicker } from "@mui/x-date-pickers/DateTimePicker";
+import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import {
-  createTask,
-  getTasks,
-  deleteTask,
-  updateTask,
-} from "../../actions/tasks";
-import CustomizedSnackbars from "../Snackbar";
+import { useLocation } from "react-router-dom";
+import { deleteTask, getTasks, updateTask } from "../../actions/tasks";
 import Form from "../Form/Form";
+import Task from "./Task";
 
 const Tasks = () => {
   let location = useLocation();
   const tasksType =
     location.pathname === "/completed" ? "completed" : "default";
+  console.log(new Date().getDay());
+  console.log(new Date().getMonth());
+  console.log(new Date().getFullYear());
 
   const dispatch = useDispatch();
 
@@ -37,10 +24,21 @@ const Tasks = () => {
 
   const tasks = useSelector((state) => state.tasks);
 
+  console.log(new Date(tasks[0]?.dateToComplete).getFullYear());
+
+  const isSameDay = (date) => {
+    return (
+      new Date().getFullYear() === new Date(date).getFullYear() &&
+      new Date().getMonth() === new Date(date).getMonth() &&
+      new Date().getDay() === new Date(date).getDay()
+    );
+  };
+
   // update
-  const update = (id, task) => {
+  const update = (id, task, message) => {
     try {
       dispatch(updateTask(id, task));
+      // Alert success
     } catch (error) {
       console.log(error);
     }
@@ -58,7 +56,11 @@ const Tasks = () => {
   return (
     <div className="container">
       <div className="tasks-container">
-        <div className={`tasks-box`}>
+        <div className="tasks-box">
+          <div className="task-timeline">
+            {tasks.filter((task) => isSameDay(task.dateToComplete)).length >
+              0 && <div>Today</div>}
+          </div>
           <div className="tasks-items">
             {tasks
               .filter((task) => task.type === tasksType)

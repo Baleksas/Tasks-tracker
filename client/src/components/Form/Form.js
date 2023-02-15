@@ -16,47 +16,60 @@ import dayjs from "dayjs";
 import CustomizedSnackbars from "../Snackbar";
 
 const Form = ({ tasks, tasksType }) => {
-  const [includeDate, setIncludeDate] = useState(true);
-
+  // Task fields
   const [title, setTitle] = useState("");
-  const [date, setDate] = useState(dayjs("2023-04-07"));
-
-  const dispatch = useDispatch();
+  const [date, setDate] = useState(dayjs(undefined));
+  // Checkbox
+  const [includeDate, setIncludeDate] = useState(true);
 
   // Snackbar
   const [openSnackbar, setOpenSnackbar] = useState(false);
-  const [errorMessage, setErrorMessage] = useState("");
+  const [message, setMessage] = useState("");
+  const [severity, setSeverity] = useState("error");
+
   const activateSnackbar = () => {
     setOpenSnackbar(true);
   };
 
+  const dispatch = useDispatch();
+
   // Create task
   const handleSubmit = (e) => {
     e.preventDefault();
+
     const newTask = {
       title: title,
-      dateToComplete: date.toString(),
+      dateToComplete: date,
       type: "default",
     };
+
     // No duplicate title
     if (tasks.filter((t) => t.title === newTask.title).length !== 0) {
-      // alert("No duplicate tasks are allowed");
-      setErrorMessage("No duplicate tasks are allowed");
+      setMessage("No duplicate tasks are allowed");
+      setSeverity("error");
       activateSnackbar();
       return;
     }
 
     // No empty title
     if (newTask.title === "") {
-      setErrorMessage("Empty titles are not allowed");
+      setMessage("Empty titles are not allowed");
+      setSeverity("error");
       activateSnackbar();
       return;
     }
     dispatch(createTask(newTask));
+
+    // Alert success
+    setMessage("Task created successfully!");
+    setSeverity("success");
+    activateSnackbar();
+
     setTitle("");
   };
 
   useEffect(() => {
+    if (includeDate === true) setDate(dayjs(undefined));
     if (includeDate === false) setDate(null);
   }, [includeDate]);
 
@@ -107,7 +120,8 @@ const Form = ({ tasks, tasksType }) => {
       <CustomizedSnackbars
         openSnackbar={openSnackbar}
         setOpenSnackbar={setOpenSnackbar}
-        errorMessage={errorMessage}
+        message={message}
+        severity={severity}
       />
     </React.Fragment>
   );

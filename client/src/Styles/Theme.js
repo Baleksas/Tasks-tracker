@@ -4,7 +4,7 @@ export const theme = createMuiTheme({
     primary: {
       main: "#bab8b8",
       dark: "#000000",
-      contrastText: "#000000",
+      contrastText: "white",
     },
     secondary: {
       main: "#66bb6a",
@@ -15,12 +15,18 @@ export const theme = createMuiTheme({
       root: {
         color: "#bab8b8",
         backgroundColor: "rgba(100,100,100,100.5)",
-        // border: "1px solid white",
       },
     },
     MuiFormLabel: {
       root: {
         color: "#bab8b8",
+      },
+    },
+    MuiPaper: {
+      root: {
+        color: "white",
+        backgroundColor: "rgba(55, 55, 31, 0.9)",
+        borderRadius: "5px",
       },
     },
     MuiInputBase: {
@@ -34,7 +40,7 @@ export const theme = createMuiTheme({
         fontSize: "15px",
         minWidth: "15px",
         borderRadius: "7px",
-        padding: "0px",
+        color: "white",
       },
     },
 
