@@ -525,6 +525,10 @@ li {
   margin: auto;
   margin-bottom: 10px;
 }
+.add-task-form > * {
+  flex: 1;
+}
+
 .add-task-button {
   width: max-content;
   min-width: 200px;

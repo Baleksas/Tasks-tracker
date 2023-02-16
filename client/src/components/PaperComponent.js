@@ -1,5 +1,5 @@
-import Draggable from "react-draggable";
 import { Paper } from "@material-ui/core";
+import Draggable from "react-draggable";
 export const PaperComponent = (props) => {
   return (
     <Draggable
