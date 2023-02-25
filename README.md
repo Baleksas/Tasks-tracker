@@ -2,13 +2,16 @@
 
 A Portfolio project of Aleksas Bagdonas
 
-<!-- ![Alien_icon 1](https://user-images.githubusercontent.com/58878092/215287040-9aa2ab7c-d96b-43ee-a84b-3b836506a537.png) -->
+
+
 
 ### You can access the application online here:
 
 [Tasks Tracker](https://habexapp.netlify.app)
 
 Front-end hosted on [![Netlify Status](https://api.netlify.com/api/v1/badges/85a81f4c-df40-4388-8f8a-30b7008bd5bb/deploy-status)](https://app.netlify.com/sites/habexapp/deploys)
+
+Back-end hosted on ![Google_Cloud_logo](https://user-images.githubusercontent.com/58878092/221353640-282670fa-1044-47c6-b6d5-48c91a48d20c.png)
 
 ### Description
 
