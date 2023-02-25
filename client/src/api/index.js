@@ -1,7 +1,7 @@
 import axios from "axios";
 
-const url_tasks = "http://localhost:5001/tasks";
-const url_completed = "http://localhost:5001/completed";
+const url_tasks = "https://tasks-tracker-378911.nw.r.appspot.com/tasks";
+const url_completed = "https://tasks-tracker-378911.nw.r.appspot.com/completed";
 
 export const fetchTasks = () => axios.get(url_tasks);
 export const fetchCompleted = () => axios.get(url_completed);

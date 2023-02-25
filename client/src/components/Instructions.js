@@ -4,7 +4,7 @@ const Instructions = () => {
     <div className="container">
       <div className="intro-container">
         <div className="intro-instructions">
-          <h2>Tasks</h2>
+          <h2>Tasks tracker</h2>
           <div className="intro-content">
             <div>
               <span>Requirements</span>
