@@ -6,7 +6,8 @@ A Portfolio project of Aleksas Bagdonas
 
 ### You can access the application online here:
 
-[Tasks Tracker](https://game-spot.netlify.app/)
+[Tasks Tracker](https://habexapp.netlify.app)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/85a81f4c-df40-4388-8f8a-30b7008bd5bb/deploy-status)](https://app.netlify.com/sites/habexapp/deploys)
 
 ### Description
 
