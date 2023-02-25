@@ -11,7 +11,8 @@ A Portfolio project of Aleksas Bagdonas
 
 Front-end hosted on [![Netlify Status](https://api.netlify.com/api/v1/badges/85a81f4c-df40-4388-8f8a-30b7008bd5bb/deploy-status)](https://app.netlify.com/sites/habexapp/deploys)
 
-Back-end hosted on ![Google_Cloud_logo](https://user-images.githubusercontent.com/58878092/221353826-fdc0ff42-d3a8-49b8-be1f-2a2105822b56.png)
+Back-end hosted on ![Google_Cloud_logo 1](https://user-images.githubusercontent.com/58878092/221353916-d0dfec4e-5a6f-4927-b111-9e4b337a0e56.png)
+
 
 ### Description
 
